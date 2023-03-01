@@ -88,5 +88,9 @@ RFC | 0.79	| **0.73224** | 0.489051
 
 </div>
 
+
+# Deploy
+
+Foi feito um [deploy](https://huggingface.co/spaces/deborabmfreitas/churn-prediction-deploy) utilizando o Hugging Face. 
  
 Clique [aqui](https://github.com/deborabmfreitas/projeto-churn-classificacao/blob/main/churn-prediction-project.ipynb) para visualizar mais detalhes do projeto.
