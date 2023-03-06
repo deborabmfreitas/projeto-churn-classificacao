@@ -71,7 +71,7 @@ Exited | Indica se o cliente está ou não em churn
 
 # Ferramentas e métodos
 - Python
-- Principais frameworks/bibliotecas: Pandas, Matplotlib, Seaborn e Sci-kit learn
+- Principais frameworks/bibliotecas: Pandas, Matplotlib, Seaborn e Scikit-learn
 - Jupyter Notebook (projeto) e VSCode (README)
 - Git e GitHub
 
