@@ -1,14 +1,16 @@
 # Previsão de Churn
 
+![img](img/img1.jpg)
+
 Foi requisitado um modelo de performance para a identificação de clientes em churn. O projeto foi separado em sprints, seguindo a ideia trabalhada na abordagem SCRUM. Os dados foram obtidos pelo [Kaggle](https://www.kaggle.com/datasets/mervetorkan/churndataset).  
 
 # Visão geral
 
-Após o entendimento do negócio, o recall foi utilizado como métrica para treinar os modelos, pois é mais importante detectar todos os possíveis clientes que serão churn do que fazer classificações precisas. O fato dos dados serem desbalanceados também indica que a métrica de acurácia será inviesada.
+Após o entendimento do negócio, o **recall** foi utilizado como métrica para treinar os modelos, pois nesse caso, **é mais importante detectar todos os possíveis clientes que serão churn do que fazer classificações precisas**. O fato dos dados serem desbalanceados também indica que a métrica de acurácia seria enviesada.
 
 Pelo fato de estarem desbalanceados, no treinamento dos algoritmos foi acrescentado o argumento `class_weight = 'balanced'`, que determina pesos de acordo com a proporção de instâncias para as classes. A classe que representa o churn '1' recebeu o maior peso.
 
-Além disso foram utilizados transformadores customizados para a preparação dos dados e todo o workflow do projeto foi automatizado com pipelines.
+Além disso, foram utilizados transformadores customizados para a preparação dos dados e todo o workflow do projeto foi automatizado com **pipelines**.
 
 Após a escolha do melhor modelo, que no projeto foi o Random Forest Classifier, foi feita a otimização dos hiperparâmetros utilizando o módulo `RandomizedSearchCV`.
 
@@ -36,7 +38,7 @@ Após a escolha do melhor modelo, que no projeto foi o Random Forest Classifier,
 - Avaliação final
 
 
-## 3. Objetivos da Sprint 4
+## 4. Objetivos da Sprint 4
 
 - Deploy do modelo
 
@@ -67,18 +69,13 @@ Exited | Indica se o cliente está ou não em churn
 - SVM
 - Random Forest Classifier
 
+# Ferramentas e métodos
+- Python
+- Principais frameworks/bibliotecas: Pandas, Matplotlib, Seaborn e Sci-kit learn
+- Jupyter Notebook (projeto) e VSCode (README)
+- Git e GitHub
 
-# Métricas   
-## 1) Taxa de churn da empresa
-
-![métrica1](img/m1.png)
-
-## 2) Variação da taxa de churn por mês  
-
-![métrica2](img/m2.png)
-
-
-## 3) Performance do modelo em classificar os clientes com churn  
+# Performance do modelo em classificar os clientes com churn  
 
 <div align="center">
 
