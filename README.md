@@ -75,7 +75,7 @@ Exited | Indica se o cliente está ou não em churn
 - Jupyter Notebook (projeto) e VSCode (README)
 - Git e GitHub
 
-# Performance do modelo em classificar os clientes com churn  
+# Performance do modelo
 
 <div align="center">
 
