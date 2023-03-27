@@ -1,12 +1,23 @@
 # Previsão de Churn
+<div align="center">
 
 ![img](img/img1.jpg)
 
+</div>
+
 Foi requisitado um modelo de performance para a identificação de clientes em churn. O projeto foi separado em sprints, seguindo a ideia trabalhada na abordagem SCRUM. Os dados foram obtidos pelo [Kaggle](https://www.kaggle.com/datasets/mervetorkan/churndataset).  
+
+
+# Ferramentas e métodos
+
+- Python
+- Principais frameworks/bibliotecas: Pandas, Matplotlib, Seaborn e Scikit-learn
+- Jupyter Notebook (projeto) e VSCode (README)
+- Git e GitHub
 
 # Visão geral
 
-Após o entendimento do negócio, o **recall** foi utilizado como métrica para treinar os modelos, pois nesse caso, **é mais importante detectar todos os possíveis clientes que serão churn do que fazer classificações precisas**. O fato dos dados serem desbalanceados também indica que a métrica de acurácia seria enviesada.
+Após o entendimento do negócio, o **recall** foi utilizado como métrica para treinar os modelos, pois nesse caso, **é mais importante detectar todos os possíveis clientes que serão churn do que fazer classificações precisas**. O fato de os dados serem desbalanceados também indica que a métrica de acurácia seria enviesada.
 
 Pelo fato de estarem desbalanceados, no treinamento dos algoritmos foi acrescentado o argumento `class_weight = 'balanced'`, que determina pesos de acordo com a proporção de instâncias para as classes. A classe que representa o churn '1' recebeu o maior peso.
 
@@ -69,11 +80,6 @@ Exited | Indica se o cliente está ou não em churn
 - SVM
 - Random Forest Classifier
 
-# Ferramentas e métodos
-- Python
-- Principais frameworks/bibliotecas: Pandas, Matplotlib, Seaborn e Scikit-learn
-- Jupyter Notebook (projeto) e VSCode (README)
-- Git e GitHub
 
 # Performance do modelo
 
