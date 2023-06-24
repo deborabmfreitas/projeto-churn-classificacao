@@ -47,7 +47,7 @@ O projeto foi comentado abaixo.
 
 # Pontos importantes do projeto
 
-- **Algoritmos de Machine lerning utilizados**
+- **Algoritmos de Machine learning utilizados**
     - DummyClassifier
     - LogisticRegression
     - **SVC** (modelo selecionado ✅)
@@ -108,7 +108,7 @@ SVC | 0.71	| **0.84** | 0.40 | 0.85
 
 # Lista prioritária de clientes em churn
 
-Através do modelo, foi possível prever os clientes que mais tinham chance de churn. Abaixo é possível ver uma representação da lista com os mais propensos. Para visualizar a lista completa, acesso notebook do [projeto](https://github.com/deborabmfreitas/projeto-churn-classificacao/blob/main/churn-prediction-crisp-2.ipynb).
+Através do modelo, foi possível prever os clientes que mais tinham chance de churn. Abaixo é possível ver uma representação da lista com os mais propensos. Para visualizar a lista completa, acesse o notebook do [projeto](https://github.com/deborabmfreitas/projeto-churn-classificacao/blob/main/churn-prediction-crisp-2.ipynb).
 
 CustomerId| Surname | Gender | Age | churn_score |
 -------|----------|--------| ----------| ---- |
