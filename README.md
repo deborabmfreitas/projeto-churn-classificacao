@@ -1,58 +1,80 @@
-# Previsão de Churn
+# Previsão de Churn com classificação
 <div align="center">
 
-![img](img/img1.jpg)
+![img](img/img1.png)
 
 </div>
 
-Foi requisitado um modelo de performance para a identificação de clientes em churn. O projeto foi separado em sprints, seguindo a ideia trabalhada na abordagem SCRUM. Os dados foram obtidos pelo [Kaggle](https://www.kaggle.com/datasets/mervetorkan/churndataset).  
+Um banco requisitou um modelo de machine learning para a identificação de clientes em churn, buscando encontrar o maior número de clientes possível para direcionar melhores estratégias.
+
+Como cientista de dados, é necessário entregar, no final do projeto, uma lista com os 20 clientes mais prioritários.
+
+Os dados foram obtidos no [Kaggle](https://www.kaggle.com/datasets/mervetorkan/churndataset).  
 
 
-# Ferramentas e métodos
+## Versões do projeto:
 
-- Python
-- Principais frameworks/bibliotecas: Pandas, Matplotlib, Seaborn e Scikit-learn
-- Jupyter Notebook (projeto) e VSCode (README)
-- Git e GitHub
+### 1. CRISP 1: foi separado em sprints, seguindo a ideia trabalhada na abordagem SCRUM. Foi buscado dar um resultado mínimo de projeto no menor tempo possível.
+
+
+* Objetivos da Sprint 1
+
+    - Descrição dos dados
+    - Análise geral dos dados
+    - Planejamento e substituições de NA
+    - Lista de hipóteses
+    - Split do dataset
+
+* Objetivos da Sprint 2
+    - EDA
+    - Data preparation
+
+* Objetivos da Sprint 3
+
+    - Implementação dos algoritmos de Machine learning
+    - Métricas de performance
+    - Avaliação final
+
+
+* Objetivos da Sprint 4
+
+    - Foi feito um [deploy](https://huggingface.co/spaces/deborabmfreitas/churn-prediction-deploy) do modelo para a experimentação inicial.
+
+### 2. **CRISP 2**: projeto final (mais atualizado).
+
+O projeto foi comentado abaixo.
+
+
+# Pontos importantes do projeto
+
+- **Algoritmos de Machine lerning utilizados**
+    - DummyClassifier
+    - LogisticRegression
+    - **SVC** (modelo selecionado ✅)
+    - KNeighborsClassifier
+    - DecisionTreeClassifier
+    - RandomForestClassifier
+    - LGBMClassifier
+
+- **Métricas e avaliações presentes**
+    - Acurácia
+    - Recall (métrica priorizada ✅)
+    - Precisão
+    - F1-score
+    - AUC + curva ROC
+    - Matriz de confusão
+    - Curva de ganho
+    - Curva lift
 
 # Visão geral
 
 Após o entendimento do negócio, o **recall** foi utilizado como métrica para treinar os modelos, pois nesse caso, **é mais importante detectar todos os possíveis clientes que serão churn do que fazer classificações precisas**. O fato de os dados serem desbalanceados também indica que a métrica de acurácia seria enviesada.
 
-Pelo fato de estarem desbalanceados, no treinamento dos algoritmos foi acrescentado o argumento `class_weight = 'balanced'`, que determina pesos de acordo com a proporção de instâncias para as classes. A classe que representa o churn '1' recebeu o maior peso.
+Pelo fato de estarem desbalanceados, inicialmente foram utilizadas diferentes técnicas de balanceamento, como o SMOTE (oversampling) e NearMiss (undersampling), no entanto, não trouxeram melhorias. Por esse motivo, no treinamento dos algoritmos foi acrescentado o argumento `class_weight`, que determina pesos de acordo com a proporção de instâncias para as classes. A classe que representa o churn '1' recebeu o maior peso.
 
-Além disso, foram utilizados transformadores customizados para a preparação dos dados e todo o workflow do projeto foi automatizado com **pipelines**.
+Além disso, foram utilizados transformadores customizados para a preparação dos dados e todo o workflow do projeto foi automatizado com **pipelines**, com cuidados para evitar data leakage.
 
-Após a escolha do melhor modelo, que no projeto foi o Random Forest Classifier, foi feita a otimização dos hiperparâmetros utilizando o módulo `RandomizedSearchCV`.
-
-
-# Organização das atividades
-
-
-## 1. Objetivos da Sprint 1
-
-- Descrição dos dados
-- Análise geral dos dados
-- Planejamento e substituições de NA
-- Lista de hipóteses
-- Split do dataset
-
-
-## 2. Objetivos da Sprint 2
-- EDA
-- Data preparation
-
-## 3. Objetivos da Sprint 3
-
-- Implementação dos algoritmos de Machine learning
-- Métricas de performance
-- Avaliação final
-
-
-## 4. Objetivos da Sprint 4
-
-- Deploy do modelo
-
+Após a escolha do melhor modelo, que no projeto foi o SVC por apresentar a melhor performance de recall e AUC, foi feita a otimização dos hiperparâmetros utilizando o módulo `RandomizedSearchCV`.
 
 # Descrição dos dados
 
@@ -73,27 +95,32 @@ IsActiveMember | Indica se o cliente ainda tem o cadastro ativo na empresa
 EstimatedSalary | Estimativa de salário mensal do cliente
 Exited | Indica se o cliente está ou não em churn 
 
-
-# Algoritmos de Machine learning
-
-- LogisticRegression
-- SVM
-- Random Forest Classifier
-
-
 # Performance do modelo
 
 <div align="center">
 
-Modelo | Accuracy | Recall | Precision
--------|----------|--------| ----------
-RFC | 0.79	| **0.73224** | 0.489051
+Modelo | Accuracy | Recall | Precision | AUC |
+-------|----------|--------| ----------| ---- |
+SVC | 0.71	| **0.84** | 0.40 | 0.85
 
 </div>
 
 
-# Deploy
+# Lista prioritária de clientes em churn
 
-Foi feito um [deploy](https://huggingface.co/spaces/deborabmfreitas/churn-prediction-deploy) utilizando o Hugging Face. 
- 
-Clique [aqui](https://github.com/deborabmfreitas/projeto-churn-classificacao/blob/main/churn-prediction-project.ipynb) para visualizar mais detalhes do projeto.
+Através do modelo, foi possível prever os clientes que mais tinham chance de churn. Abaixo é possível ver uma representação da lista com os mais propensos. Para visualizar a lista completa, acesso notebook do [projeto]().
+
+CustomerId| Surname | Gender | Age | churn_score |
+-------|----------|--------| ----------| ---- |
+15656822 | Day	| Male | 43 | 0.97
+15719508 | Davis	| Male | 49 | 0.95
+15647898| Russell	| Female | 50 | 0.94
+15622033| Rapuluchukwu	| Female| 41 | 0.88
+15605279 | Francis | Male | 50 | 0.87
+15589017 | Chiu	| Male | 55 | 0.859
+15781272| Coles	| Male | 50 | 0.854
+15759436| Aksenov | Female	| 50 | 0.849
+15793307 | Calabresi | Female	| 0.40 | 0.846
+15806808 | Hope	| Female | 41 | 0.841
+
+
