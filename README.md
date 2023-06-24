@@ -120,7 +120,7 @@ CustomerId| Surname | Gender | Age | churn_score |
 15589017 | Chiu	| Male | 55 | 0.859
 15781272| Coles	| Male | 50 | 0.854
 15759436| Aksenov | Female	| 50 | 0.849
-15793307 | Calabresi | Female	| 0.40 | 0.846
+15793307 | Calabresi | Female	| 40 | 0.846
 15806808 | Hope	| Female | 41 | 0.841
 
 
