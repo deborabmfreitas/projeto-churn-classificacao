@@ -1,7 +1,7 @@
 # Previsão de Churn com classificação
 <div align="center">
 
-![img](img/img1.png)
+<img src="img/churn.png" width="500" alt="img">
 
 </div>
 
